@@ -1,0 +1,46 @@
+.main-div {
+  background-color: black;
+
+}
+
+.carousel-view {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* .carousel-inner{
+  width: 70%;
+} */
+
+.carousel {
+  width: 900px;
+  height: 1000px;
+  margin: auto;
+  padding-bottom: 0px;
+}
+
+.carousel-indicators{
+  margin-bottom: 160px;
+}
+
+
+
+.img-two{
+    /* width: 600px; */
+    height: 450px;
+}
+
+@media (max-width: 900px) {
+  .carousel {
+    width: 400px;
+    height: 500px;
+  }
+
+  .img-two{
+    /* width: 600px; */
+    height: 200px;
+}
+}
