@@ -19,12 +19,8 @@ function VideoSection() {
           </p>
         </div>
         <div className="contact-button">
-          <a className='anchortag' href="#contact">
-            <button
-              
-              type="button"
-              className="contact-us__button"
-            >
+          <a className="anchortag" href="#contact">
+            <button type="button" className="contact-us__button">
               Contact Us!
             </button>
           </a>

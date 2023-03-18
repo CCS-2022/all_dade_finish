@@ -7,12 +7,13 @@ import "./Footer.css";
 //   faInstagram,
 // } from "@fortawesome/free-brands-svg-icons";
 // import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import './Footer.css';
+import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="white-section__footer" id="footer">
-      <div className="container-fluid">
+    <footer className="main-footer" id="footer">
+      {/* <div className="container-fluid"> */}
+      <div >
         {/* <FontAwesomeIcon className="social-icon" icon={faTwitter} />
         <FontAwesomeIcon className="social-icon" icon={faFacebookF} />
         <FontAwesomeIcon className="social-icon" icon={faInstagram} />
@@ -22,7 +23,8 @@ function Footer() {
         <i class="social-icon fab fa-facebook-f"></i>
         <i class="social-icon fab fa-instagram"></i>
         <i class="social-icon fas fa-envelope"></i> */}
-        <p>© Copyright 2022 AllDadeFinish</p>
+        <p className="footer-paragraph">© Copyright 2023 AllDadeFinish</p>
+        <p className="footer-subparagraph">Design By Cloud Consulting & Solutions</p>
       </div>
     </footer>
   );

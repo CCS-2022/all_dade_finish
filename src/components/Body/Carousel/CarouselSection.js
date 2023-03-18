@@ -7,6 +7,7 @@ import "./CarouselSection.css";
 function CarouselSection() {
   return (
     <div className="main-div" id="gallery">
+      <p className="gallery-title">Previous Work</p>
       <Carousel className="carousel-view">
         <Carousel.Item interval={1000}>
           <img className="d-block w-100" src={galleryOne} alt="First slide" />
@@ -35,7 +36,6 @@ function CarouselSection() {
             </p>
           </Carousel.Caption> */}
         </Carousel.Item>
-        
       </Carousel>
     </div>
   );

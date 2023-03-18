@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./Contact.css";
 
 function Contact(props) {
+    // ====================================================STATE=================================================================
   const [toSend, setToSend] = useState({
     from: "",
+    name: "",
     subject: "Important Message",
     body: ""
   });
@@ -28,7 +30,7 @@ function Contact(props) {
 
   function nameInputChangeHandler(event) {
     setEnteredName(event.target.value);
-    // setToSend({ ...toSend, [event.target.name]: event.target.value });
+    setToSend({ ...toSend, [event.target.name]: event.target.value });
   }
 
   function emailInputChangeHandler(event) {
@@ -102,7 +104,27 @@ function Contact(props) {
                   placeholder="(Required)"
                   onChange={nameInputChangeHandler}
                   onBlur={nameInputBlurHandler}
-                  value={enteredName}
+                  value={toSend.name}
+                />
+                {nameInputIsInvalid && (
+                  <p className="error-text">Name Must Not Be Empty.</p>
+                )}
+              </div>
+            </div>
+            <div className="col-lg-6 label-header">
+              <div className={nameInputClasses}>
+                <label htmlFor="phone" className="form-label">
+                  Phone Number
+                </label>
+                <input
+                  type="text"
+                  name="phone"
+                  className="form-control"
+                  id="name"
+                  placeholder="(Required)"
+                  onChange={nameInputChangeHandler}
+                  onBlur={nameInputBlurHandler}
+                  value={toSend.name}
                 />
                 {nameInputIsInvalid && (
                   <p className="error-text">Name Must Not Be Empty.</p>

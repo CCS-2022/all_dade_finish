@@ -1,13 +1,39 @@
 #footer {
   text-align: center;
-  background-color: #fff;
+
 }
 
 .social-icon {
   margin: 60px 10px 10px 10px;
 }
 
-.white-section__footer{
-  padding: 200px 120px 0 120px;
+.footer-paragraph{
+  color: aliceblue;
+  font-size: 20px;
+  animation: footer-appear 1s ease-out forwards;
+}
 
+.footer-subparagraph{
+  color: rgb(98, 98, 99);
+  font-size: 10px;
+  animation: footer-appear 1s ease-out forwards;
+}
+
+.main-footer {
+  background: black;
+  padding: 32px;
+  margin-top: 48px;
+  
+}
+
+@keyframes footer-appear {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
