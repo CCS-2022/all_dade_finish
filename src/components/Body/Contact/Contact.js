@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import Modal from "../../UI/Modal";
 import "./Contact.css";
 
-export default function ContactSimplified(props) {
+export default function Contact() {
   // ==================================================== STATE =================================================================
 
   const [httpError, setHttpError] = useState(false);
@@ -24,11 +24,13 @@ export default function ContactSimplified(props) {
   const [enteredBody, setEnteredBody] = useState("");
 
   // ========================================================== VALIDITY CSS CODE ================================================
-  const enteredNameIsValid = enteredName.trim() !== "";
+  const enteredNameIsValid = enteredName.trim() !== "" ;
   const nameInputIsInvalid = !enteredNameIsValid && enteredNameTouched;
 
   const enteredPhoneIsValid = enteredPhone.trim() !== "";
-  const phoneInputIsInvalid = !enteredPhoneIsValid && enteredPhoneTouched;
+  const phoneInputIsInvalid = !enteredPhoneIsValid && enteredPhoneTouched ;
+  const enteredPhoneIsValidTwo =  enteredPhone.trim().length === 10;
+  const phoneInputIsInvalidTwo = !enteredPhoneIsValidTwo && enteredPhoneTouched ;
 
   const enteredEmailIsValid = enteredEmail.includes("@");
   const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
@@ -110,34 +112,35 @@ export default function ContactSimplified(props) {
 
     setIsSubmitting(true);
 
-    try { const response = await fetch(
-      // "https://emailapi.cloudconsultingandsolutions.com/send",
-      "https://email-api-5bf64-default-rtdb.firebaseio.com/email.json",
-      {
-        method: "POST",
-        body: JSON.stringify(info),
-        // mode: "no-cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers": "*",
-          "Content-Type": "application/json",
-          "CF-Access-Client-Id": "b3715a15e2cf684664b6ac7bbfb935f9.access",
-          "CF-Access-Client-Secret":
-            "b6568b710a67199c90fcb4e58b7d781613b0b6be0561874e3e0cfbc1342a5bec",
-        },
+    try {
+      const response = await fetch(
+        // "https://emailapi.cloudconsultingandsolutions.com/send",
+        "https://email-api-5bf64-default-rtdb.firebaseio.com/email.json",
+        {
+          method: "POST",
+          body: JSON.stringify(info),
+          // mode: "no-cors",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "*",
+            "Content-Type": "application/json",
+            "CF-Access-Client-Id": "b3715a15e2cf684664b6ac7bbfb935f9.access",
+            "CF-Access-Client-Secret":
+              "b6568b710a67199c90fcb4e58b7d781613b0b6be0561874e3e0cfbc1342a5bec",
+          },
+        }
+      );
+      // console.log(JSON.stringify(info));
+
+      if (!response.ok) {
+        setHttpError(true);
       }
-    );
-    // console.log(JSON.stringify(info));
 
-    if (!response.ok) {
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
       setHttpError(true);
-    } 
-
-    const data = await response.json();
-    console.log(data);
-  }catch (error) {
-    setHttpError(true );
-  }
+    }
     setIsSubmitting(false);
     setDidSubmit(true);
 
@@ -163,6 +166,7 @@ export default function ContactSimplified(props) {
   const nameInputClasses = nameInputIsInvalid ? " invalid" : " ";
   const emailInputClasses = emailInputIsInvalid ? " invalid" : " ";
   const phoneInputClasses = phoneInputIsInvalid ? " invalid" : " ";
+  const phoneInputClassesTwo = phoneInputIsInvalidTwo ? " invalid" : " ";
 
   console.log(httpError);
   const modalContent = (
@@ -170,7 +174,7 @@ export default function ContactSimplified(props) {
       {!httpError ? (
         <h3 className="modal-message">Message Sent!</h3>
       ) : (
-        <h3 className="modal-message">Something went wrong</h3>
+        <h3 className="modal-message" style={{color: 'red'}}>Something went wrong</h3>
       )}
       <button className="close-button" onClick={hideModalHandler}>
         Close
@@ -184,10 +188,10 @@ export default function ContactSimplified(props) {
     <Fragment>
       {modalIsShown && (
         <Modal onClose={hideModalHandler}>
-          {/* {!isSubmitting && cartModalContent} */}
+
           {isSubmitting && isSubmittingModalContent}
           {didSubmit && modalContent}
-          {/* {!httpError && errorModalContent} */}
+
         </Modal>
       )}
       <section className="contact-section" id="contact">
@@ -216,7 +220,7 @@ export default function ContactSimplified(props) {
                 </div>
               </div>
               <div className="col-lg-6 label-header">
-                <div className={phoneInputClasses}>
+                <div className={`${phoneInputClasses} ${phoneInputClassesTwo}`}>
                   <label htmlFor="phone" className="form-label">
                     Phone Number
                   </label>
@@ -232,6 +236,9 @@ export default function ContactSimplified(props) {
                   />
                   {phoneInputIsInvalid && (
                     <p className="error-text">Phone Number Required.</p>
+                  )}
+                  {phoneInputIsInvalidTwo && (
+                    <p className="error-text">Invalid Phone Input...</p>
                   )}
                 </div>
               </div>
