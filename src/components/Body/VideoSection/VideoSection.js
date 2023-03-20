@@ -8,7 +8,7 @@ function VideoSection() {
       <div className="overlay"></div>
       <video src={video} autoPlay loop muted />
       <div className="content">
-        <h1 className="content-h1">Family-Owned Company</h1>
+//         <h1 className="content-h1">Family-Owned Company</h1>
         <div className="content-paragraph__div">
           <p className="content-paragraph">
             We Are Dedicated To Interior Remodeling Services In The South
