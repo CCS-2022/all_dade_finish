@@ -114,8 +114,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        // "https://emailapi.cloudconsultingandsolutions.com/send",
-        "https://email-api-5bf64-default-rtdb.firebaseio.com/email.json",
+        "https://emailapi.cloudconsultingandsolutions.com/send",
         {
           method: "POST",
           body: JSON.stringify(info),
