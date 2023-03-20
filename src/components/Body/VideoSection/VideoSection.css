@@ -92,35 +92,22 @@ video {
 
 @media only screen and (max-width: 1400px) {
   .content-h1 {
-    font-size: 300%;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
+    font-size: 100%;
     text-align: center;
   }
 
   .content {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    display: flex;
-    flex-direction: column;
     margin-top: 50px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    animation: carousel-appear 1s ease-out forwards;
   }
 
   .content-h1 {
     font-size: 300%;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    animation: carousel-appear 1s ease-out forwards;
   }
 
   .content-paragraph__div {
     margin-top: 30px;
+    width: 70%;
   }
 
   .anchortag {
