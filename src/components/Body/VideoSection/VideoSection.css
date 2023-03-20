@@ -40,8 +40,8 @@ video {
   justify-items: center;
   align-items: center;
   margin-top: 60px;
-  width: 50%;
-  padding: 20px;
+  width: 70%;
+  padding: 30px;
   border-radius: 12px;
   opacity: 0.6;
   animation: carousel-appear 1s ease-out forwards;
@@ -54,6 +54,7 @@ video {
   align-items: center;
   opacity: 1;
   font-weight: 100;
+  /* font-size: 25px; */
   animation: carousel-appear 1s ease-out forwards;
 }
 
@@ -90,7 +91,7 @@ video {
   animation: carousel-appear 1s ease-out forwards;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1500px) {
   .content-h1 {
     font-size: 100%;
     text-align: center;
@@ -102,16 +103,41 @@ video {
   }
 
   .content-h1 {
-    font-size: 300%;
+    font-size: 250%;
   }
 
   .content-paragraph__div {
     margin-top: 30px;
-    width: 70%;
+    width: 80%;
   }
 
   .anchortag {
-    margin-top: 0px;
+    margin-top: -20px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .content-h1 {
+    font-size: 100%;
+    text-align: center;
+  }
+
+  .content {
+    position: absolute;
+    margin-top: 50px;
+  }
+
+  .content-h1 {
+    font-size: 250%;
+  }
+
+  .content-paragraph__div {
+    margin-top: 30px;
+    width: 80%;
+  }
+
+  .anchortag {
+    margin-top: -20px;
   }
 }
 
