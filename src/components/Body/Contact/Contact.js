@@ -130,6 +130,7 @@ export default function Contact() {
         }
       );
       // console.log(JSON.stringify(info));
+      console.log(response);
 
       if (!response.ok) {
         setHttpError(true);
