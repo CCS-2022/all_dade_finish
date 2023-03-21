@@ -8,6 +8,10 @@
   animation: nav-appear 1s ease-out forwards;
 }
 
+.justify-content-end{
+  text-align: center;
+}
+
 .container {
   max-width: 90%;
   display: flex;
