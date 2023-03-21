@@ -118,6 +118,7 @@ video {
 
 @media only screen and (max-width: 1000px) {
   .content-h1 {
+    display: none;
     font-size: 100%;
     text-align: center;
   }
