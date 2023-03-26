@@ -1,7 +1,7 @@
 import Carousel from "react-bootstrap/Carousel";
-import galleryOne from "../../../assets/gallery-1.jpg";
-import galleryTwo from "../../../assets/gallery-2.JPG";
-import galleryThree from "../../../assets/gallery-3.jpg";
+import galleryOne from "../../../assets/gallery-1_resized.jpg";
+import galleryTwo from "../../../assets/gallery-2_resized.jpg";
+import galleryThree from "../../../assets/gallery-3_resized.jpg";
 import "./CarouselSection.css";
 
 function CarouselSection() {
@@ -10,7 +10,7 @@ function CarouselSection() {
       <p className="gallery-title">Previous Work</p>
       <Carousel className="carousel-view">
         <Carousel.Item interval={1000}>
-          <img className="d-block w-100" src={galleryOne} alt="First slide" />
+          <img className="d-block carousel-img" src={galleryOne} alt="First slide" />
           {/* <Carousel.Caption>
             <h3>First slide label</h3>
             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
@@ -18,7 +18,7 @@ function CarouselSection() {
         </Carousel.Item>
         <Carousel.Item interval={500}>
           <img
-            className="d-block w-100 img-two"
+            className="d-block carousel-img"
             src={galleryTwo}
             alt="Second slide"
           />
@@ -28,7 +28,11 @@ function CarouselSection() {
           </Carousel.Caption> */}
         </Carousel.Item>
         <Carousel.Item>
-          <img className="d-block w-100" src={galleryThree} alt="Third slide" />
+          <img
+            className="d-block carousel-img"
+            src={galleryThree}
+            alt="Third slide"
+          />
           {/* <Carousel.Caption>
             <h3>Third slide label</h3>
             <p>
