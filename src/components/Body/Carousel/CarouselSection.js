@@ -1,45 +1,47 @@
 import Carousel from "react-bootstrap/Carousel";
-import galleryOne from "../../../assets/gallery-1_resized.jpg";
-import galleryTwo from "../../../assets/gallery-2_resized.jpg";
-import galleryThree from "../../../assets/gallery-3_resized.jpg";
+import gallery1 from "../../../assets/gallery-1.jpg";
+import gallery2 from "../../../assets/gallery-2.JPG";
+import gallery3 from "../../../assets/gallery-3.jpg";
+import gallery4 from "../../../assets/gallery-4.jpeg";
+import gallery5 from "../../../assets/gallery-5.jpeg";
+import gallery6 from "../../../assets/gallery-6.jpeg";
+import gallery7 from "../../../assets/gallery-7.jpeg";
+import gallery8 from "../../../assets/gallery-8.jpeg";
+import gallery9 from "../../../assets/gallery-9.jpeg";
+import gallery10 from "../../../assets/gallery-10.jpeg";
+import gallery11 from "../../../assets/gallery-11.jpeg";
 import "./CarouselSection.css";
 
 function CarouselSection() {
   return (
     <div className="main-div" id="gallery">
       <p className="gallery-title">Previous Work</p>
-      <Carousel className="carousel-view">
-        <Carousel.Item interval={1000}>
-          <img className="d-block carousel-img" src={galleryOne} alt="First slide" />
-          {/* <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption> */}
-        </Carousel.Item>
-        <Carousel.Item interval={500}>
-          <img
-            className="d-block carousel-img"
-            src={galleryTwo}
-            alt="Second slide"
-          />
-          {/* <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption> */}
+      <Carousel className="carousel">
+        <Carousel.Item>
+          <img className="carousel-img" src={gallery1} />
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block carousel-img"
-            src={galleryThree}
-            alt="Third slide"
-          />
-          {/* <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption> */}
+          <img className="carousel-img" src={gallery2} />
         </Carousel.Item>
+        <Carousel.Item>
+          <img className="carousel-img" src={gallery3} />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="carousel-img" src={gallery4} />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="carousel-img" src={gallery5} />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="carousel-img" src={gallery6} />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="carousel-img" src={gallery7} />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="carousel-img" src={gallery8} />
+        </Carousel.Item>
+
       </Carousel>
     </div>
   );
