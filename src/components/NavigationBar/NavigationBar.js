@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 import logoImg from "../../assets/logo-no-background.png";
 import "./NavigationBar.css";
-
+ 
 function NavigationBar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="black" variant="dark" fixed="top" >
