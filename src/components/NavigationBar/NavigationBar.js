@@ -17,7 +17,7 @@ function NavigationBar() {
           <Nav className="me-auto justify-content-end" style={{ width: "100%" }}>
             <Nav.Link href="#services">Services</Nav.Link>
             <Nav.Link href="#gallery">Gallery</Nav.Link>
-            <Nav.Link href="#contact">Contact Us</Nav.Link>
+            <Nav.Link href="#contact">Contact Alexey</Nav.Link>
             {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
