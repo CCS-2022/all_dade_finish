@@ -256,7 +256,7 @@ export default function Contact() {
               <div className="col-lg-12 label-header">
                 <div className="mb-3">
                   <label htmlFor="body" className="form-label">
-                    Please add details of design ideas…
+                    Please add details of design ideas
                   </label>
                   <textarea
                     name="body"
