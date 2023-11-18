@@ -29,14 +29,14 @@ pipeline {
             }
         }
 
-        // stage('SonarQube Analysis') {
+        stage('SonarQube Analysis') {
                 
-        //     steps {
-        //         withSonarQubeEnv(credentialsId: 'SSFrontEnd-SonarQube', installationName: 'SSFrontEndSonar') {
-        //             sh "$SONARSCANNER"
-        //         }
-        //     }    
-        // }
+            steps {
+                withSonarQubeEnv(credentialsId: 'Alldade-SonarQube', installationName: 'SonarServer') {
+                    sh "$SONARSCANNER"
+                }
+            }    
+        }
 
         stage('Create Image && Upload to DockerHub') {
             steps {
