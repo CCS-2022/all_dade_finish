@@ -3,12 +3,12 @@ pipeline {
     environment {
         CI = true
         ARTIFACTORY_ACCESS_TOKEN = credentials('artifactory-access-token')
-        SSServer = credentials('SSServerIP')
-        SSUser = credentials('SSUserID')
-        Port = credentials('SSPort')
+        ServerIP = credentials('AllDadeIP')
+        ServerUser = credentials('AllDadeUser')
+        Port = credentials('AllDadePort')
         Artifactory = credentials('ArtifactoryIP') 
         DockerID = credentials('DockerHubUser')
-        DevZone = credentials('DevZone') 
+        DevZone = credentials('AllDadeDevZone') 
         VERSION = "${BUILD_NUMBER}"
         SONARSCANNER = credentials('SonarScannerPath')
     }
@@ -25,18 +25,18 @@ pipeline {
  
         stage('Git Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/CCS-2022/secret-santa-frontend.git'
+                git branch: 'master', url: 'https://github.com/CCS-2022/all_dade_finish.git'
             }
         }
 
-        stage('SonarQube Analysis') {
+        // stage('SonarQube Analysis') {
                 
-            steps {
-                withSonarQubeEnv(credentialsId: 'SSFrontEnd-SonarQube', installationName: 'SSFrontEndSonar') {
-                    sh "$SONARSCANNER"
-                }
-            }    
-        }
+        //     steps {
+        //         withSonarQubeEnv(credentialsId: 'SSFrontEnd-SonarQube', installationName: 'SSFrontEndSonar') {
+        //             sh "$SONARSCANNER"
+        //         }
+        //     }    
+        // }
 
         stage('Create Image && Upload to DockerHub') {
             steps {
@@ -72,17 +72,17 @@ pipeline {
                 script {
                     echo '*** Executing remote commands ***'                  
                     try {
-                        sh "ssh ${SSUser}@${SSServer} 'docker stop ${DevZone}'"
+                        sh "ssh ${ServerUser}@${ServerIP} 'docker stop ${DevZone}'"
                     } catch (Exception e) {
                         echo "Container not running. Error: ${e}"
                     }
                     try {
-                        sh "ssh ${SSUser}@${SSServer} 'docker rm ${DevZone}'"
+                        sh "ssh ${ServerUser}@${ServerIP} 'docker rm ${DevZone}'"
                     } catch (Exception e) {
                         echo "Container not running. Error: ${e}"
                     }
-                    sh "ssh ${SSUser}@${SSServer} 'docker pull ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
-                    sh "ssh ${SSUser}@${SSServer} 'docker run -d -p ${Port}:${Port} --restart unless-stopped --name=${DevZone} ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
+                    sh "ssh ${ServerUser}@${ServerIP} 'docker pull ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
+                    sh "ssh ${ServerUser}@${ServerIP} 'docker run -d -p ${Port}:${Port} --restart unless-stopped --name=${DevZone} ${DockerID}/${DevZone}:${ENVS}-${VERSION}'"
                 }                
             }
         }
@@ -92,7 +92,7 @@ pipeline {
                 echo '*** Removing Unused Images From Local Server ***'
                 sh 'docker system prune -f'
                 echo '*** Removing Unused Images From Remote SS Server ***'
-                sh 'ssh ${SSUser}@${SSServer} docker system prune -f'
+                sh 'ssh ${ServerUser}@${ServerIP} docker system prune -f'
                 }
         }
     }
