@@ -1,55 +1,64 @@
 .main-div {
   background-color: black;
-  animation: carousel-appear 1s ease-out forwards;
+  /* animation: carousel-appear 0s ease-out forwards; */
+  min-height: 800px;
+
+  width: 100%;
+  overflow: hidden; /* Prevent content from overflowing outside the container */
 }
 
 .gallery-title {
   color: aliceblue;
   text-align: center;
   font-family: inherit;
-  font-size: 300%;
-  margin-bottom: -150px;
-  padding: 15px;
+  font-size: 3vw;
+  margin-bottom: 0vw;
+  padding: 1vw;
   font-weight: 700;
 }
 
 .carousel-view {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
 .carousel {
-  width: 82.5rem;
-  height: 900px;
+  width: 100%;
+  max-width: 1200px;
   margin: auto;
 }
 
 .carousel-indicators {
-  margin-bottom: 130px;
+  margin-bottom: -3vw;
 }
-
 
 .carousel-img {
   margin: auto;
-  max-height:480px;
-
-
+  max-width: 100%; /* Ensure the image doesn't exceed the container width */
+  max-height: 500px; /* Ensure the image doesn't exceed the container height */
+  height: 100%;
+  display: block; /* Remove any potential white space below inline-block elements */
 }
 
 @media (max-width: 1200px) {
-  .carousel {
-    width: 350px;
-    height: 500px;
-  }
+  .carousel{
+    padding: 5px;
 
-  .carousel-img {
-    max-height:170px;
   }
-
   .gallery-title {
     font-size: 30px;
     padding: 50px;
   }
 }
 
+@media (max-width: 768px) {
+  .gallery-title {
+    font-size: 20px;
+    padding: 30px;
+  }
 
+  .carousel-img {
+    max-height: 100%;
+  }
+}
