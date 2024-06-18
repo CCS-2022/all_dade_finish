@@ -109,7 +109,7 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch("emailapi.alldadefinish.com/send", {
+      const response = await fetch("https://emailapi.alldadefinish.com/send", {
         method: "POST",
         body: JSON.stringify(info),
         headers: {
